@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="tailwindcss.css">
+</head>
+<body class="border-gray-200">
+   
+    <div id="app">
+        <div class="flex justify-center">
+            <div class="w-4/12"> 
+                <input @keyup.enter="addtocurrent" v-model="task" type="text">
+                
+                
+                <div>
+                   <h2 v-if="currentTasks.length > 0" class="text-xl text-black my-3">current</h2> 
+                   <div v-for="task in currentTasks" class="flex justify-between">
+                   <div >
+                   {{task}}
+                   </div>
+                   <div>
+                       <button @click="movetolater(task)">Later</button>
+                       <button @click="deletecurrent(index)">Delete</button>
+                   </div>
+                   </div>
+
+                
+                </div>
+               
+               
+               
+                <div>
+                    later
+                </div>
+           
+           
+           
+           
+            </div>
+
+        </div>
+       
+
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+     
+    <script>
+
+
+    let vue= new Vue({
+
+    el:'#app',
+    data:{
+
+    task='',
+    currentTasks:[],
+    laterTasks:[]
+
+
+    
+    },
+    mathods:{
+
+    addtocurrent(){
+        this.currentTasks.push(this.task)
+
+    },
+    deletecurrent(index){
+        this.currentTasks.splice(index,1)
+    
+    },
+
+    movetolater(task){
+        this.laterTasks.push(task)
+         
+        this.currentTasks.splice(index,1)
+    }
+
+
+    }
+
+    }) 
+
+    </script>
+    
+
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="tailwindcss.css">
+</head>
+
+<body>
+    
+<div id="app" class="mt-5 ml-5" >
+<a @click="activesection ='section1'" :class="activesection=='section1' ? 'bg-blue-400' : 'bg-pink-200' " class="text-black p-4 rounded-lg mb-5">Section 1</a>
+
+<a @click="activesection ='section2'" :class="activesection=='section2' ? 'bg-blue-400' : 'bg-pink-200' " class="text-black  p-4 rounded-lg mb-5">Section 2</a>
+
+<p v-if="activesection=='section1'" class="mt-5">Lorem ipsum dolor sit amet consecteturam rem laboriosam</p>
+<p v-if="activesection=='section2'" class="mt-5">Lorem ipsum dolor sit amet cwwwqs</p>  
+
+</div>
+
+
+    <script src="vue.js"></script>
+    
+    
+    <script>
+
+        let app=new Vue ({
+
+        el:"#app",
+        data:{
+           activesection:'',
+
+        },
+        methods:{
+
+        }
+
+        
+
+})
+
+
+        
+
+    </script>
+</body>
+</html>
